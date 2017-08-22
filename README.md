@@ -1,2 +1,7 @@
-# subnetjtopo
-jtopo全网通信拓朴图
+### subnet
+技能要求
+
+* jtopo
+![](img.gif)
+![](img2.gif)
+![](img3.gif)
