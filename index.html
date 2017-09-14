@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta http-equiv="X-UA-Compitable" content="IE=edge">
+    <title></title>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/mycss.css">
+</head>
+<body>
+<div class="exemple">
+    <ul class="media-list">
+        <h1>图&nbsp;&nbsp;例</h1>
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="images/subnet.png" alt="">
+            </a>
+            <div class="media-body">
+                <span>子网</span>
+            </div>
+        </li>
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="images/clicent.png" alt="客户端">
+            </a>
+            <div class="media-body">
+                <span>客户端</span>
+            </div>
+        </li>
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="images/server.png" alt="服务端">
+            </a>
+            <div class="media-body">
+                <span>服务端</span>
+            </div>
+        </li>
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="images/port.png" alt="端口">
+            </a>
+            <div class="media-body">
+                <span>端口</span>
+            </div>
+        </li>
+        <li class="media">
+            <a class="" href="#">
+                <img class="media-object" src="images/tcolor.png" alt="kpi">
+            </a>
+            <div class="media-body">
+                <span>KPI从左至右值由小到大</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<form class="form_ip hide">
+    <span>IP/掩码位:</span>
+    <input class=in size=3 value=10 name=ip_1>
+    <input class=in size=3 value=0 name=ip_2>
+    <input class=in size=3 value=0 name=ip_3>
+    <input class=in size=3 value=5 name=ip_4>
+    <input class=in size=2 value=24 name=bits>
+    <!--     <input onclick=calNBFL(this.form); type=button  value="计算"> -->
+    <span >
+        <br>
+        <b>结果结果:</b>
+    </span>
+    <table summary=result border="1" cellspacing="1" cellpadding="0">
+        <tr style="display: none;">
+            <td>
+                <span>可用地址:</span>
+            </td>
+            <td>
+                <input readOnly size=10 name=numofaddr>
+            </td>
+        </tr>
+        <tr style="display: none;">
+            <td>
+                <span>掩码:</span>
+            </td>
+            <td>
+                <input readOnly size=3 name=snm_1>
+                <input readOnly size=3 name=snm_2>
+                <input readOnly size=3 name=snm_3>
+                <input readOnly size=3 name=snm_4>
+            </td>
+        </tr>
+        <tr style="display: none;">
+            <td>
+                <span>网络:</span>
+            </td>
+            <td>
+                <input readOnly size=3 name=nwadr_1>
+                <input readOnly size=3 name=nwadr_2>
+                <input readOnly size=3 name=nwadr_3>
+                <input readOnly size=3 name=nwadr_4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>第一个可用:</span>
+            </td>
+            <td>
+                <input readOnly size=3 name=firstadr_1>
+                <input readOnly size=3 name=firstadr_2>
+                <input readOnly size=3 name=firstadr_3>
+                <input readOnly size=3 name=firstadr_4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>最后可用：</span>
+            </td>
+            <td>
+                <input readOnly size=3 name=lastadr_1>
+                <input readOnly size=3 name=lastadr_2>
+                <input readOnly size=3 name=lastadr_3>
+                <input readOnly size=3 name=lastadr_4>
+            </td>
+        </tr>
+        <tr style="display: none;">
+            <td>
+                <span>广播:</span>
+            </td>
+            <td>
+                <input readOnly size=3 name=bcast_1>
+                <input readOnly size=3 name=bcast_2>
+                <input readOnly size=3 name=bcast_3>
+                <input readOnly size=3 name=bcast_4>
+            </td>
+        </tr>
+    </table>
+</form>
+<nav class="navbar navbar-default navbar-logo" role="navigation">
+    <div class="container-fluid">
+        <div class="logo left">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="jtopo_toolbar">
+            <select name="" class="select kpi">
+                <option value="1" selected="selected">实时流量(默认)</option>
+                <option value="2">数据包速率</option>
+                <option value="3">服务端时延</option>
+                <option value="4">客户端时延</option>
+                <option value="5">服务端TCP握手时延</option>
+                <option value="6">客户端TCP握手时延</option>
+                <option value="7">网络传输丢包率</option>
+                <option value="8">服务端丢包率</option>
+                <option value="9">客户端丢包率</option>
+                <option value="10">通信中断数量</option>
+                <option value="11">应用中断数量</option>
+                <option value="12">尝试连接数量</option>
+                <option value="13">关闭连接数量</option>
+                <option value="14">尝试连接率</option>
+                <option value="15">通信中断率</option>
+                <option value="16">应用中断率</option>
+                <option value="17">关闭连接率</option>
+                <option value="18">小包速率</option>
+                <option value="19">小包比率</option>
+                <option value="20">TCP流量</option>
+                <option value="21">UDP流量</option>
+                <option value="22">应用处理时延</option>
+            </select>
+            <input type="text" id="findText" value="" onkeydown="enterPressHandler(event)" placeholder="查询IP地址">
+            <input type="button" id="searchButton" class="clbutton" value=" 查 询 ">
+            <label for="alarm-button" class=" cursor">告警提示</label><input type="checkbox" id="alarm-button" title="告警提示" class="cursor" checked="checked"/>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid blank-space">
+    <input type="text" id="jtopo_textfield"/>
+    <ul id="contextmenu">
+<!--        <li onclick="javascript:location.reload();"><i class="fontPtcolor glyphicon glyphicon-refresh"></i><a class="white">刷新</a></li>-->
+        <li><i class="fontPtcolor glyphicon glyphicon-asterisk"></i><a class="white">复制当前对象IP</a></li>
+        <li class="showCenter"><i class="fontPtcolor glyphicon glyphicon-certificate"></i><a class="white">以此为中心显示</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-trash"></i><a class="white">删除对象</a></li>
+<!--        <li><i class="fontPtcolor glyphicon glyphicon-ok-circle"></i><a class="white">全选</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-ok-sign"></i><a class="white">反选</a></li>-->
+        <!--    <li><i class="fontPtcolor glyphicon glyphicon-home"></i><a class="white">默认模式</a></li>-->
+        <li><i class="fontPtcolor glyphicon glyphicon-cog controlToolbar"></i><a class="white">隐藏工具栏</a></li>
+
+<!--        <li><i class="fontPtcolor glyphicon glyphicon-record"></i><a class="white kxcheck">框选模式</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-align-center"></i><a class="white">居中显示</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-fullscreen"></i><a class="white showfull">全屏显示</a></li>-->
+<!--        <li><i class="fontPtcolor glyphicon glyphicon-italic"></i><a class="white showIp">显示IP地址</a></li>-->
+<!--        <li><i class="fontPtcolor glyphicon glyphicon-save"></i><a class="white">导出PNG</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-comment"></i><a class="white">保存状态</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-th-list"></i><a class="white">产品说明</a></li>-->
+    </ul>
+    <ul id="linkmenu">
+        <li><i class="fontPtcolor glyphicon glyphicon-transfer"></i><a class="white link">修改颜色(随机)</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-link"></i><a class="white link">连线加粗</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-paperclip"></i><a class="white link">连线变细</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-tasks"></i><a class="white link">变成虚线</a></li>
+        <li><i class="fontPtcolor glyphicon glyphicon-align-justify"></i><a class="white link">变成实线</a></li>
+<!--        <li><i class="fontPtcolor glyphicon glyphicon-trash"></i><a class="white link">删除连线</a></li>-->
+    </ul>
+    <!--模态框（Modal）-->
+    <div class="modal fade" id="myModal" data-show="false" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">操作框 </h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered  table-condensed table-responsive hide" >
+                        <tbody class="addOption">
+                        <tr>
+                            <td>保存名</td>
+                            <td>操作时间</td>
+                            <td>删除保存</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="modal-body-div hide">
+                    </div>
+                  <!--  <div class="modal-tipUser hide">
+                        <span>请为你所保存的状态命名,命名长度不得超过4个汉字或字母或数字,不建议使用特殊字符以免保存失败</span>
+                        <br>
+                        <input type="text" placeholder="请命名" class="namedtext" style="color:black" autofocus >
+                    </div>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary t-click" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default f-click" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <canvas id="canvas">
+        您的浏览器不支持Html5 canvas，请换一个浏览器。
+    </canvas>
+</div>
+<div class="mloadingDiv hide">
+    <div class="loadingDivChild">
+        正在从数据库请求数据，请您耐心等候.............
+    </div>
+</div>
+<div name="topo_toolbar" class="panel mypanel">
+    <div class="panel-body mypanel-body">
+        <div class="btn-group mybtn-group">
+            <button name="refresh" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="刷新" onclick="javascript:location.reload();">
+                <span class="glyphicon glyphicon-refresh cursor"></span>
+            </button>
+            <button name="default" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="初始状态">
+                <span class="glyphicon glyphicon-home sdefault cursor"></span>
+            </button>
+            <button name="select" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="框选模式">
+                <span class="glyphicon glyphicon-check sselect cursor"></span>
+            </button>
+            <button name="center" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="居中显示">
+                <span class="glyphicon glyphicon-screenshot scenter cursor"></span>
+            </button>
+            <button name="export_image" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip" data-placement="bottom" data-original-title="导出PNG">
+                <span class="glyphicon glyphicon-picture sexport_image cursor"></span>
+            </button>
+            <button name="full_screen" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip" data-placement="bottom" data-original-title="全屏">
+                <span class="glyphicon glyphicon-fullscreen sfull_screen cursor"></span>
+            </button>
+            <button name="save" type="button" class="btn btn-sm btn-sus move hide" data-toggle="tooltip"  data-placement="bottom" data-original-title="保存状态">
+                <span class="glyphicon glyphicon-comment ssave cursor"></span>
+            </button>
+            <button name="showIP" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip" data-placement="bottom" data-original-title="显示IP">
+                <span class="glyphicon glyphicon-italic sshowIP cursor"></span>
+            </button>
+            <button name="usrerSeting" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="匹配用户设置" >
+                <span class="glyphicon glyphicon-asterisk susrerSeting cursor"></span>
+            </button>
+            <button name="explain" type="button" class="btn btn-sm btn-sus move" data-toggle="tooltip"  data-placement="bottom" data-original-title="帮助">
+                <span class="glyphicon glyphicon-question-sign sexplain cursor"></span>
+            </button>
+            <div class="input-group input-group-sm dropdown hide qsave">
+                <button class="btn btn-sm btn-sus dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100px;">
+                    请求保存
+                    <span class="caret" style="position: absolute;top: 12px;"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jtopo-0.4.8-min.js"></script>
+<script src="js/jnode.js"></script>

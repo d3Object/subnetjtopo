@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>fdfdfdsfd</button>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script>
+    try{
+        console.log(1);
+    }catch (err){
+        console.log(err);
+        console.log(10);
+        if(err){
+            console.log(err);
+        }
+    }
+    $("button").click(function(){
+        console.log(2);
+    })
+    $("button").attr("disabled","disabled");
+    setTimeout(function(){
+        $("button").removeAttr("disabled");
+    },5000)
+
+
+
+    function fn(a,b,c){
+        if(a == 1||a == 2||a == 3){
+            console.log("this is a ")
+        }
+        if(b == 1&&b ==2 &&b ==3){
+            console.log("this is b");
+        }
+    }
+    fn(2,3);
+</script>
